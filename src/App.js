@@ -19,22 +19,41 @@ function Logo() {
 }
 function Form() {
   return (
-    <div className="add-form">
+    <form className="add-form">
       <h3>what do you need?</h3>
-    </div>
+      <select>
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+          <option value={num} key={num}>
+            {num}
+          </option>
+        ))}
+      </select>
+      <input type="text" placeholder="Item..."></input>
+      <button>Add</button>
+    </form>
   );
 }
 function PackingList() {
   return (
-    <ul className="list">
-      {initialItems.map((item) => (
-        <Item item={item} />
-      ))}
-    </ul>
+    <div className="list">
+      <ul>
+        {initialItems.map((item) => (
+          <Item item={item} />
+        ))}
+      </ul>
+    </div>
   );
 }
 function Item({ item }) {
-  return <li>{item.description}</li>;
+  return (
+    <li>
+      <span style={item.packed ? { textDecoration: "line-through" } : {}}>
+        {item.quantity}
+        {item.description}
+      </span>
+      <button>❌</button>
+    </li>
+  );
 }
 function Stats() {
   return <footer className="stats">You have X items on your list</footer>;
