@@ -25,7 +25,16 @@ function Form() {
   );
 }
 function PackingList() {
-  return <div className="list">LIST</div>;
+  return (
+    <ul className="list">
+      {initialItems.map((item) => (
+        <Item item={item} />
+      ))}
+    </ul>
+  );
+}
+function Item({ item }) {
+  return <li>{item.description}</li>;
 }
 function Stats() {
   return <footer className="stats">You have X items on your list</footer>;
