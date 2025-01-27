@@ -39,7 +39,7 @@ export default function App() {
 }
 
 function Logo() {
-  return <h1> 🌴Far Away 💼</h1>;
+  return <h1> 🌴Get Set Pack! 💼</h1>;
 }
 function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
